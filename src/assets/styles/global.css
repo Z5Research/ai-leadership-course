@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #0052D9;
+    --primary-dark: #003CAB;
+    --primary-light: #2B7BF5;
+    --accent: #E8A838;
+    --accent-dark: #D4922E;
+    --dark: #1A1A2E;
+    --dark-deep: #0F0F1A;
+    --dark-purple: #1A1A5E;
+    --surface: #F7F8FA;
+    --surface-light: #FAFBFC;
+    --text-primary: #181818;
+    --text-secondary: #5E5E5E;
+    --text-light: #FFFFFF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-[var(--text-primary)] bg-white;
+    overflow-x: hidden;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-center text-[var(--text-secondary)] text-lg mb-16 max-w-2xl mx-auto;
+  }
+
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light;
+  }
+
+  .gold-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-dark to-accent-light;
+  }
+}
+
+@layer utilities {
+  .text-shadow-lg {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
